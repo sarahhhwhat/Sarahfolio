@@ -4,6 +4,7 @@ import AboutEducationSection from './components/AboutEducationSection';
 import ProjectsSection from './components/ProjectsSection';
 import TutoringSection from './components/TutoringSection';
 import SkillsSection from './components/SkillsSection';
+import CertificationsSection from './components/CertificationsSection';
 import GlobalSection from './components/GlobalSection';
 import ContactSection from './components/ContactSection';
 import Header from '@/components/Header';
@@ -19,6 +20,7 @@ export default function HomePage() {
       <ProjectsSection />
       <TutoringSection />
       <SkillsSection />
+      <CertificationsSection />
       <GlobalSection />
       <ContactSection />
       <Footer />

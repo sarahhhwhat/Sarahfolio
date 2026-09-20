@@ -14,7 +14,6 @@ const projects = [
   tags: ['Python', 'Astropy', 'Photutils', 'Spyder', 'WCS', 'HST Data'],
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_1d50855dd-1775549674800.png",
   imageAlt: 'Deep space galaxy field from Hubble Space Telescope, dark starfield with colorful distant galaxies, dim atmospheric deep-space environment',
-  colSpan: 'lg:col-span-2',
   dark: true,
   link: 'https://github.com/sarahhhwhat'
 },
@@ -28,23 +27,8 @@ const projects = [
   tags: ['ESP32', 'C++', 'WebSockets', 'HTML/CSS'],
   image: "https://images.unsplash.com/photo-1605995753652-d92e1167c867",
   imageAlt: 'Electronic circuit board with microcontroller, bright overhead lighting, clean white background, technical components clearly visible',
-  colSpan: 'lg:col-span-1',
   dark: false,
   link: 'https://github.com/sarahhhwhat/AQI-sensor-using-ESP32'
-},
-{
-  id: 'aurareset',
-  type: 'Software',
-  title: 'AuraReset',
-  subtitle: 'Wellness Tracker PWA',
-  description:
-  'Progressive Web App for wellness tracking. Installed on iPhone. Built with React and deployed on Netlify.',
-  tags: ['React', 'PWA', 'Netlify', 'JavaScript'],
-  image: "https://img.rocket.new/generatedImages/rocket_gen_img_116af182b-1766514926083.png",
-  imageAlt: 'Smartphone displaying a wellness app interface, bright natural light, minimalist white desk setting, clean and airy',
-  colSpan: 'lg:col-span-1',
-  dark: false,
-  link: 'https://github.com/sarahhhwhat'
 },
 {
   id: 'studphysics',
@@ -56,7 +40,6 @@ const projects = [
   tags: ['React', 'Netlify', 'Custom Domain'],
   image: "https://img.rocket.new/generatedImages/rocket_gen_img_18a130216-1778864062049.png",
   imageAlt: 'Physics equations and formulas on dark chalkboard, dim atmospheric classroom, deep shadow environment, low-key academic lighting',
-  colSpan: 'lg:col-span-1',
   dark: true,
   link: 'https://studphysics.space'
 },
@@ -70,7 +53,6 @@ const projects = [
   tags: ['C++', 'SFML', 'Physics Simulation', 'Numerical Methods'],
   image: "https://images.unsplash.com/photo-1691996072414-523ce9110a93",
   imageAlt: 'Abstract orbital paths and planetary bodies in deep space, dark atmospheric void, dim starfield background, deep shadows',
-  colSpan: 'lg:col-span-1',
   dark: true,
   link: 'https://github.com/sarahhhwhat'
 }];
@@ -116,10 +98,10 @@ export default function ProjectsSection() {
         </div>
 
         {/* BENTO GRID AUDIT:
-           Array: [astro cs-2, aqi cs-1, aurareset cs-1, studphysics cs-1, gravity cs-1]
+           Array: [astro cs-2, aqi cs-1, studphysics cs-2, gravity cs-1]
            Row 1: [col-1+2: astro cs-2] [col-3: aqi cs-1]
-           Row 2: [col-1: aurareset cs-1] [col-2: studphysics cs-1] [col-3: gravity cs-1]
-           Placed 5/5 cards ✓
+           Row 2: [col-1+2: studphysics cs-2] [col-3: gravity cs-1]
+           Placed 4/4 cards ✓
           */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Card: astro — col-span-2 */}
@@ -138,20 +120,12 @@ export default function ProjectsSection() {
             <ProjectCard project={projects[1]} />
           </div>
 
-          {/* Card: aurareset */}
+          {/* Card: studphysics */}
           <div
-            className="lg:col-span-1 reveal-hidden"
+            className="lg:col-span-2 reveal-hidden"
             style={{ opacity: 0, transform: 'translateY(40px)' }}>
             
             <ProjectCard project={projects[2]} />
-          </div>
-
-          {/* Card: studphysics */}
-          <div
-            className="lg:col-span-1 reveal-hidden"
-            style={{ opacity: 0, transform: 'translateY(40px)' }}>
-            
-            <ProjectCard project={projects[3]} />
           </div>
 
           {/* Card: gravity */}
@@ -159,7 +133,7 @@ export default function ProjectsSection() {
             className="lg:col-span-1 reveal-hidden"
             style={{ opacity: 0, transform: 'translateY(40px)' }}>
             
-            <ProjectCard project={projects[4]} />
+            <ProjectCard project={projects[3]} />
           </div>
         </div>
 

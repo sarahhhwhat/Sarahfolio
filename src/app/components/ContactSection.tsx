@@ -2,6 +2,37 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
+const EMAIL = 'pixelsarah2006@gmail.com';
+
+const contactItems: { icon: string; label: string; value: string; sub: string; link?: string }[] = [
+  {
+    icon: '📍',
+    label: 'Location',
+    value: 'Mira Road, Maharashtra, India',
+    sub: 'Available for remote & local tutoring',
+  },
+  {
+    icon: '🎓',
+    label: 'University',
+    value: 'Royal College of Arts, Science & Commerce',
+    sub: 'University of Mumbai · BSc Physics',
+  },
+  {
+    icon: '💻',
+    label: 'GitHub',
+    value: 'github.com/sarahhhwhat',
+    sub: 'Open source projects & research code',
+    link: 'https://github.com/sarahhhwhat',
+  },
+  {
+    icon: '✉️',
+    label: 'Email',
+    value: EMAIL,
+    sub: 'Reply within 24 hours',
+    link: `mailto:${EMAIL}`,
+  },
+];
+
 export default function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [formState, setFormState] = useState({ name: '', email: '', subject: '', message: '' });
@@ -59,34 +90,20 @@ export default function ContactSection() {
             {/* Contact cards */}
             <div className="reveal-hidden" style={{ opacity: 0, transform: 'translateY(40px)' }}>
               <div className="space-y-4">
-                {[
-                  {
-                    icon: '📍',
-                    label: 'Location',
-                    value: 'Mira Road, Maharashtra, India',
-                    sub: 'Available for remote & local tutoring',
-                  },
-                  {
-                    icon: '🎓',
-                    label: 'University',
-                    value: 'Royal College of Arts, Science & Commerce',
-                    sub: 'University of Mumbai · BSc Physics',
-                  },
-                  {
-                    icon: '💻',
-                    label: 'GitHub',
-                    value: 'github.com/sarahhhwhat',
-                    sub: 'Open source projects & research code',
-                    link: 'https://github.com/sarahhhwhat',
-                  },
-                ].map((item) => (
+                {contactItems.map((item) => (
                   <div key={item.label} className="glass-dark border border-dark-border rounded-2xl p-5 card-hover">
                     <div className="flex items-start gap-4">
                       <span className="text-2xl mt-0.5">{item.icon}</span>
                       <div>
                         <p className="text-primary-foreground/50 text-[10px] uppercase tracking-widest font-semibold mb-0.5">{item.label}</p>
                         {item.link ? (
-                          <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-primary font-semibold text-sm hover:underline">
+                          <a
+                            href={item.link}
+                            {...(item.link.startsWith('mailto:')
+                              ? {}
+                              : { target: '_blank', rel: 'noopener noreferrer' })}
+                            className="text-primary font-semibold text-sm hover:underline"
+                          >
                             {item.value}
                           </a>
                         ) : (
@@ -106,6 +123,7 @@ export default function ContactSection() {
                 <h3 className="font-display font-700 text-base text-primary-foreground mb-4">Find Me Online</h3>
                 <div className="space-y-3">
                   {[
+                    { label: 'Email', handle: EMAIL, link: `mailto:${EMAIL}`, icon: '✉️' },
                     { label: 'GitHub', handle: '@sarahhhwhat', link: 'https://github.com/sarahhhwhat', icon: 'GH' },
                     { label: 'Book Shop', handle: '@bookaholicccs', link: 'https://instagram.com/bookaholicccs', icon: '📚' },
                     { label: 'Toman FC', handle: '@tomanfc_11', link: 'https://instagram.com/tomanfc_11', icon: '⚽' },
@@ -114,8 +132,9 @@ export default function ContactSection() {
                     <a
                       key={social.label}
                       href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...(social.link.startsWith('mailto:')
+                        ? {}
+                        : { target: '_blank', rel: 'noopener noreferrer' })}
                       className="flex items-center justify-between glass-dark border border-dark-border rounded-xl px-4 py-3 hover:border-primary transition-all group"
                     >
                       <div className="flex items-center gap-3">

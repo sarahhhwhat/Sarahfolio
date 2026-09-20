@@ -2,18 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 
-const applications = [
-  { org: 'Jio Institute', program: 'Research Internship', status: 'Applied', region: '🇮🇳 India' },
-  { org: 'CERN', program: 'Short-Term Internship', status: 'Applied', region: '🇨🇭 Switzerland' },
-  { org: 'Japan Youth Summit 2026', program: 'Osaka Delegation', status: 'Applied', region: '🇯🇵 Japan' },
-  { org: 'One Future Conference', program: 'Barcelona Delegate', status: 'Applied', region: '🇪🇸 Spain' },
-  { org: 'UTRIP', program: 'University of Tokyo Research', status: 'Applied', region: '🇯🇵 Japan' },
-  { org: 'EU Blue Book Traineeship', program: 'European Commission', status: 'Applied', region: '🇪🇺 EU' },
-  { org: 'Stanford', program: 'Venture Fellowship', status: 'Applied', region: '🇺🇸 USA' },
-  { org: 'OECD / IFAD / WTO', program: 'Young Trade Leaders', status: 'Applied', region: '🌍 Global' },
-  { org: 'IIT Indore', program: 'Summer Internship', status: 'Applied', region: '🇮🇳 India' },
-];
-
 export default function GlobalSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -49,12 +37,12 @@ export default function GlobalSection() {
             Global <span className="italic text-primary">Reach.</span>
           </h2>
           <p className="text-muted-foreground text-base mt-3 max-w-xl">
-            Applying to programs across 8+ countries — from CERN to the University of Tokyo.
+            Reaching for research and policy opportunities across 8+ countries — from CERN to the University of Tokyo.
           </p>
         </div>
 
         {/* Big stat */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="reveal-hidden md:col-span-2 bg-dark-bg rounded-3xl p-8 shadow-editorial" style={{ opacity: 0, transform: 'translateY(40px)' }}>
             <div className="flex items-start gap-6">
               <div>
@@ -89,29 +77,6 @@ export default function GlobalSection() {
               <p className="font-display font-700 text-xl text-primary-foreground">Research Focus</p>
               <p className="text-primary-foreground/70 text-sm mt-1">Galaxy Morphology · Computational Physics · Astrophysics</p>
             </div>
-          </div>
-        </div>
-
-        {/* Applications grid */}
-        <div className="reveal-hidden" style={{ opacity: 0, transform: 'translateY(40px)' }}>
-          <h3 className="font-display font-700 text-xl text-foreground mb-6 flex items-center gap-3">
-            <span className="text-primary">✦</span> Applications & Programs
-          </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {applications.map((app, i) => (
-              <div
-                key={app.org}
-                className="reveal-hidden glass-cream border border-border rounded-2xl p-4 card-hover"
-                style={{ opacity: 0, transform: 'translateY(40px)' }}
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <span className="text-sm font-semibold text-foreground">{app.org}</span>
-                  <span className="text-[10px] font-semibold text-primary uppercase tracking-wider">Applied</span>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2">{app.program}</p>
-                <span className="text-[11px] font-medium text-muted-foreground">{app.region}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>
